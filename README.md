@@ -21,8 +21,9 @@ This tutorial outlines the implementation of configuring Active Directory within
 <h2>High-Level Deployment and Configuration Steps</h2>
 
 - Create a Resource Group
-- Create a Virtual Machine (Client-1)
 - Create a Static Address (DC-1)
+- Create a Virtual Machine (Client-1)
+- Adjust DC-1's IP Settings to Static 
 - Confirm Connection between Client-1 & DC-1
 - 
 
@@ -42,13 +43,13 @@ To get started we will need to make a Resource Group to store our Virtual Machin
 
 <p>
 <p align="center">
-<h3>Create a Virtual Machine (Client-1)</h3> 
+<h3>Create a Static Address (DC-1)</h3> 
 </p>
-Once our Resource Group is created we can now create our Virtual Machines for Client-1. 
+Once our Resource Group is created we can now create our DC-1 Virtual Machine. 
 <p align="center">
 <img src="https://i.imgur.com/ywweOiG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 <p>
-  In this tutorial, the original settings will work. Plus, be sure to select Windows 10 as the operating system for Client-1. 
+  In this tutorial, the original settings will work for both VMs. Be sure to select Windows Server 2022 as the Operating System for DC-1. 
   
   <p align="center">
 <img src="https://i.imgur.com/pxQeJyj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -56,12 +57,12 @@ Once our Resource Group is created we can now create our Virtual Machines for Cl
 <p align="center">
  <img src="https://i.imgur.com/8vf4Tqj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 </p>
-Once you have completed creating the client-1 VM. Go to the VM page to confirm it has populated the correct Resource Group
+Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is populating in the correct Resource Group.
 <br />
 <p align="center">
-<h3>Create a Static Address (DC-1)</h3>   
+<h3>Create a Virtual Machine (Client-1)</h3>   
 <p>
-  Now that client-1 is been created, we can now create DC-1. Make sure the Regions and Resource Groups are consistent across VMs. Then Select Windows Server 2022 as the operating system for DC-1.   
+  Now that DC-1 is been created, It is time to create Client-1. Be sure to make confirm that the Regions and Resource Groups are consistent across both VMs. Then Select Windows 10 as the operating system for Client-1.   
   <p align="center">
 <img src="https://i.imgur.com/iJ1aA01.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -69,6 +70,16 @@ Once you have completed creating the client-1 VM. Go to the VM page to confirm i
 <p align="center">
 <img src="https://i.imgur.com/opkG2Kl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 </p>
-<br />
+<h3>Adjust DC-1's IP Settings to Static </h3>
+The purpose of setting the DC-1 IP address to Static is so the IP address never changes. 
+<p align="center">
+<img src="https://i.imgur.com/TeVGcb8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+<p align="center">
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+<h3>Confirm Connection between Client-1 & DC-1</h3>
 <p align="center">
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
