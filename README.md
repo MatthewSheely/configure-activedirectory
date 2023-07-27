@@ -71,15 +71,48 @@ Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is
 <img src="https://i.imgur.com/opkG2Kl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 </p>
 <h3>Adjust DC-1's IP Settings to Static </h3>
-The purpose of setting the DC-1 IP address to Static is so the IP address never changes. 
+The purpose of setting the DC-1 IP address to Static is so the IP address never changes.
+<p></p>
 <p align="center">
 <img src="https://i.imgur.com/TeVGcb8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
+  
+<h3>Confirm Connectivity Between Client-1 & DC-1</h3>
+<p></p>
+To test our connectivity, start by logging into Client-1's VM. Once logged in, open a command line. We are using the Powershell application for this example. Then ping DC-1's private IP address.
+<p>
 <p align="center">
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/atBtEb4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p>
+As displayed above, DC-1 is not receiving a ping from Cleint-1. This is because DC-1's Windows Firewall is blocking ICMP traffic. To fix this we will need to log into DC-1's VM and change the configuration to allow ICMP traffic.    
+</p>
+Once logged into DC-1. Type into the Windows search bar WF.MSC(Microsoft Common Console Document). This gives us access to the Domain Controller settings used to enable ICMP. Select Inbound Rules.
+<p></p>
 <p align="center">
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/TABH1Ux.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+Enable both ICMPv4 Core Networking Diagnostics on the local windows firewall.
+<p></p>
+<p align="center">
+<img src="https://i.imgur.com/5OaH1es.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+Once adjusted you can go back to Client-1 and ping DC-1. This time the ping should be received and displayed as such (below). 
+<p></p>
+<p align="center">
+<img src="https://i.imgur.com/SPbz3Ac.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<P></P>
+<h3>Install Active Directory</h3>
 
-<h3>Confirm Connection between Client-1 & DC-1</h3>
+Login to DC-1, Add Roles and Features 
 <p align="center">
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/jriNUBO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+Select Active Directory Doman Service 
+<p align="center">
+<img src="https://i.imgur.com/rEeHxqM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+Confirm & Install 
+<p align="center">
+<img src="https://i.imgur.com/UJddzZn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+Promote as a Domain Controller 
