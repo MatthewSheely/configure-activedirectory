@@ -27,7 +27,8 @@ This tutorial outlines the implementation of configuring Active Directory within
 - Confirm Connection between DC-1 & Client-1
 - Install Active Directory
 - Promote to Domain Controller
-- Create Admin and User Accounts 
+- Create Admin and User Accounts
+- Give Client-1 access to mydomain.com 
 
 <h2>Deploy and Configure</h2>
 
@@ -184,10 +185,32 @@ Open Active Directory by clicking on Tools and selecting AD Users and Computers 
   <p></p>
 
   <p align="center">
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/6TyfOKH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
 
   <p align="center">
+<img src="https://i.imgur.com/ZQeeDx2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+<p align="center">
+<img src="https://i.imgur.com/lMxLxMT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+<p align="center">
+<img src="https://i.imgur.com/rhDPwGZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+<p align="center">
+<img src="https://i.imgur.com/Nzu870t.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+
+<h3>Give Client-1 access to mydomain.com</h3>
+
+
+<p align="center">
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-  
+
+
+<h3>Set Up Remot Desktop for Cleint-1 (Non-Admin)</h3>
