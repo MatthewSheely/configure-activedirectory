@@ -18,7 +18,7 @@ This tutorial outlines the implementation of configuring Active Directory within
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2>High-Level Deployment and Configuration Steps</h2>
+<h2>Deploy and Configure Active Directory</h2>
 
 - Create a Resource Group
 - Create a Static Address (DC-1)
@@ -26,15 +26,16 @@ This tutorial outlines the implementation of configuring Active Directory within
 - Adjust DC-1's IP Settings to Static 
 - Confirm Connection between DC-1 & Client-1
 - Install Active Directory
-- Promote to Domain Controller 
+- Promote to Domain Controller
+- Create Admin and User Accounts 
 
 <h2>Deploy and Configure</h2>
 
 
 <h3>Create a Resource Group</h3>
 
-  
-To get started we will need to make a Resource Group to store our Virtual Machines (DC-1 & Client-1)
+<p align="center">  
+Create a Resource Group to store Virtual Machines 
 <p>  
 <p align="center">
 <img src="https://i.imgur.com/8xvnzhz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -45,18 +46,19 @@ To get started we will need to make a Resource Group to store our Virtual Machin
 
 <h3>Create a Static Address (DC-1)</h3> 
 
-
-Once our Resource Group is created we can now create our DC-1 Virtual Machine. 
+<p align="center">
+Create a Virtual Server (DC-1). 
 <p align="center">
 <img src="https://i.imgur.com/ywweOiG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 <p>
-  In this tutorial, the original settings will work for both VMs. Be sure to select Windows Server 2022 as the Operating System for DC-1. 
+<p align="center">
+In this tutorial, the original settings will work for both VMs. Be sure to select Windows Server 2022 as the Operating System for DC-1. 
   
-  <p align="center">
+<p align="center">
 <img src="https://i.imgur.com/pxQeJyj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
 <p align="center">
- <img src="https://i.imgur.com/8vf4Tqj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+<img src="https://i.imgur.com/8vf4Tqj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 </p>
 Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is populating in the correct Resource Group.
 <br />
@@ -65,12 +67,11 @@ Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is
 <h3>Create a Virtual Machine (Client-1)</h3>   
 
 
-<p>
-  Now that DC-1 is been created, It is time to create Client-1. Be sure to make confirm that the Regions and Resource Groups are consistent across both VMs. Then Select Windows 10 as the operating system for Client-1.   
-  <p align="center">
+<p align="center">
+Now that DC-1 is been created, It is time to create Client-1. Be sure to make confirm that the Regions and Resource Groups are consistent across both VMs. Then Select Windows 10 as the operating system for Client-1.   
+<p align="center">
 <img src="https://i.imgur.com/iJ1aA01.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
+</p><p>
 <p align="center">
 <img src="https://i.imgur.com/opkG2Kl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 </p>
@@ -79,33 +80,39 @@ Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is
 <h3>Adjust DC-1's IP Settings to Static </h3>
 
 
+<p align="center">
 The purpose of setting the DC-1 IP address to Static is so the IP address never changes.
 <p></p>
 <p align="center">
 <img src="https://i.imgur.com/TeVGcb8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-  <p></p>
+<p></p>
   
 
 <h3>Confirm Connectivity Between Client-1 & DC-1</h3>
 
 
+<p align="center">
 To test our connectivity, start by logging into Client-1's VM. Once logged in, open a command line. We are using the Powershell application for this example. Then ping DC-1's private IP address.
 <p>
 <p align="center">
 <img src="https://i.imgur.com/atBtEb4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p>
+<p align="center">
 As displayed above, DC-1 is not receiving a ping from Cleint-1. This is because DC-1's Windows Firewall is blocking ICMP traffic. To fix this we will need to log into DC-1's VM and change the configuration to allow ICMP traffic.    
 </p>
+<p align="center">
 Once logged into DC-1. Type into the Windows search bar WF.MSC(Microsoft Common Console Document). This gives us access to the Domain Controller settings used to enable ICMP. Select Inbound Rules.
 <p></p>
 <p align="center">
 <img src="https://i.imgur.com/TABH1Ux.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p></p>
+<p align="center">
 Enable both ICMPv4 Core Networking Diagnostics on the local Windows firewall.
 <p></p>
 <p align="center">
 <img src="https://i.imgur.com/5OaH1es.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p></p>
+<p align="center">
 Once adjusted you can go back to Client-1 and ping DC-1. This time the ping should be received and displayed as such (below). 
 <p></p>
 <p align="center">
@@ -116,15 +123,18 @@ Once adjusted you can go back to Client-1 and ping DC-1. This time the ping shou
 <h3>Install Active Directory</h3>
 
 
+<p align="center">
 Login to DC-1, Add Roles and Features 
 <p align="center">
 <img src="https://i.imgur.com/jriNUBO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p></p>
+<p align="center">
 Select Active Directory Doman Service
 <p></p>
 <p align="center">
 <img src="https://i.imgur.com/rEeHxqM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
+<p align="center">
 Confirm & Install 
 <p></p>
 <p align="center">
@@ -136,9 +146,48 @@ Confirm & Install
 
 
 <p align="center">
-<img src="https://imgur.com/a/5uNgPk1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-  <p></p>
-<p align="center">
-<img src="https://i.imgur.com/nXKuNTP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+This is the last step in the installation of Active Directory. Once completed the system should restart. 
 <p></p>
+<p align="center">
+<img src="https://i.imgur.com/O5zmOip.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+<p align="center">
+Setup a new forest user name. It can be anything you want it to be. As you can see below i used mydomain.com.
+<p align="center">
+<img src="https://i.imgur.com/bkjWWQS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+<p align="center">
+Login with the context of the domain.
+<p align="center">
+<img src="https://i.imgur.com/giAZDsK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p></p>
+
+
+<h3>Create Admin and User Accounts </h3>
+
+
+<p align="center">
+Create an Organizational Unit_ (_Employees)
+<p align="center">
+Open Active Directory by clicking on Tools and selecting AD Users and Computers or by typing in AD Users and Computers in the Microsoft search bar.
+
+<p align="center">
+<img src="https://i.imgur.com/98b3eyV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+  <p align="center">
+<img src="https://i.imgur.com/hpndyaL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+  <p align="center">
+<img src="https://i.imgur.com/OFe3N4D.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+  <p align="center">
+<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
+
+  <p align="center">
+<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  <p></p>
   
