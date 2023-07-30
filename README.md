@@ -179,23 +179,23 @@ Once you have completed creating DC-1 VM. Go to the VM page to confirm the VM is
   <p align="center">
 <img src="https://i.imgur.com/OFe3N4D.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-8D. Create a User
+8D. Create a New User
   <p align="center">
 <img src="https://i.imgur.com/6TyfOKH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-8E. Name the User (John Doe)
+8E. Name the New User (John Doe)
   <p align="center">
 <img src="https://i.imgur.com/ZQeeDx2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-8F. Confirm The User was created
+8F. Confirm The New User was Created
 <p align="center">
 <img src="https://i.imgur.com/lMxLxMT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-8G. Give User (John Doe) Domain Admin Access
+8G. Give New User (John Doe) Domain Admin Access
 <p align="center">
 <img src="https://i.imgur.com/rhDPwGZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
-8H. Login to VM with User credential. 
+8H. Login to VM with New User Credential. 
 <p align="center">
 <img src="https://i.imgur.com/Nzu870t.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   <p></p>
